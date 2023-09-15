@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState} from 'react'
+import {  FC, useState} from 'react'
 import {ITask} from '../Interface'
 import TodoList from './TodoList'
 import './TodoApp.css'
@@ -8,11 +8,11 @@ const TodoApp:FC = () => {
   const [days, setDays] = useState<number>(0)
   const [todo, setTodo] = useState<ITask[]>([])
 
-const handleSubmit = (event:ChangeEvent<HTMLInputElement>):void =>{
- event.preventDefault()
- if(!text){
-  return null
- }
+const handleSubmit = (e:any) =>{
+ e.preventDefault()
+
+if(!text) return null;
+
  const newTask:ITask = {Taskname:text, Days:days}
  setTodo([...todo, newTask]);
  setText('')
